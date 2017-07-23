@@ -13,8 +13,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
-from random import randint
-from nric import NRICValidator
+
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -35,18 +34,18 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
     def processRequest(req):
-    if req.get("result").get("action") != "emotions_detect":
-        return {}
+        if req.get("result").get("action") != "emotions_detect":
+        
+            return {}
     
     res = makeWebhookResult(req)
     return res
 
     def makeWebhookResult(req):
     
-    result = req.get("result")
+        result = req.get("result")
     parameters = result.get("parameters")
     emotion = parameters.get("Emotions")
-    
     
     if emotion is sad :
         speech = "Why suddenly sad?"
@@ -62,7 +61,7 @@ def webhook():
         "source": "emotions"
     }
     if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
+        port = int(os.getenv('PORT', 5000))
 
     print("Starting app on port %d" % port)
 
