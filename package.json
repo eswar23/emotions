@@ -1,1 +1,6 @@
-"scripts" : { "start" : "python server.py" }
+{
+  "name": "Dummy Example",
+  "description": "Dummy Example",
+  "repository": "https://github.com/eswar23/emotions/edit/master",
+  "keywords": ["eswar23", "natural language"]
+}
