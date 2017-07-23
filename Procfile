@@ -1,1 +1,1 @@
-web:python emotions.py
+web: gunicorn web:emotions.py --log-file=-
