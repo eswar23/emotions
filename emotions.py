@@ -35,7 +35,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
     def processRequest(req):
-    if req.get("result").get("action") != "AnimalJoker":
+    if req.get("result").get("action") != "emotions_detect":
         return {}
     
     res = makeWebhookResult(req)
@@ -48,10 +48,8 @@ def webhook():
     emotion = parameters.get("Emotions")
     
     
-    if sad:
+    if emotion is sad :
         speech = "Why suddenly sad?"
-    else:
-        speech = "I'm happy that you are happy"
 
     print("Response:")
     print(speech)
@@ -61,7 +59,7 @@ def webhook():
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "AnimalJoker"
+        "source": "emotions"
     }
     if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
